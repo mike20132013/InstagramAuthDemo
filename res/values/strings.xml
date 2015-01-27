@@ -5,7 +5,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
-    <string name="client_id">your_client_id</string>
-    <string name="client_secret">your_client_secret</string>
+    <string name="client_id">3a508b397cd94ee997534b9c4770e6ae</string>
+    <string name="client_secret">95285eb7bef648ab922ffba1de0a23cc</string>
     
 </resources>
