@@ -11,7 +11,9 @@ public class AppConstants {
 	public static String CALLBACKURL = "http://www.view-unlimited.com";
 
 	public static final String SHARED_PREF_CONSTANT = "SHARED_PREF_CONSTANT";
-	public static final String SHARED_PREF_KEY = "SHARED_PREF_KEY";
+	public static final String SHARED_PREF_REQUEST_TOKEN_KEY = "SHARED_PREF_REQUEST_TOKEN_KEY";
+	public static final String SHARED_PREF_WEB_URL_KEY = "SHARED_PREF_WEB_URL_KEY";
+	public static final String SHARED_PREF_BOOLEAN_KEY = "SHARED_PREF_BOOLEAN_KEY";
 
 	private static String authURLString;
 
@@ -22,9 +24,22 @@ public class AppConstants {
 				+ client_id
 				+ "&redirect_uri="
 				+ CALLBACKURL
-				+ "&response_type=code&display=touch&scope=likes+comments+relationships";
-
+				+ "&response_type=token&display=touch&scope=likes+comments+relationships";
+		
 		return authURLString;
+	}
+	
+	public static String setAuthURLforRequestCode(String client_id){
+		
+		authURLString = AUTHURL
+				+ "?client_id="
+				+ client_id
+				+ "&redirect_uri="
+				+ CALLBACKURL
+				+ "&response_type=code&display=touch&scope=likes+comments+relationships";
+		
+		return authURLString;
+		
 	}
 
 	private static SharedPreferences getSharedPreference(Context context) {
@@ -44,6 +59,12 @@ public class AppConstants {
 	public static SharedPreferences.Editor setEditorValues(Context context, String key, String value){
 		
 		return getSharedPreferenceEditor(context).putString(key, value);
+		
+	}
+	
+	public static SharedPreferences.Editor setEditorBooleanValues(Context context, String key, boolean value){
+		
+		return getSharedPreferenceEditor(context).putBoolean(key, value);
 		
 	}
 

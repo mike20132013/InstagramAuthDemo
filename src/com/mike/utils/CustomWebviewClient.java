@@ -9,6 +9,7 @@ import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.mike.appmodel.AppModel;
 import com.mike.listeners.GenericFinishListener;
 
 public class CustomWebviewClient extends WebViewClient{
@@ -52,8 +53,14 @@ public class CustomWebviewClient extends WebViewClient{
             String request_token = parts[1];  //This is your request token.
             Log.i("REQUEST TOKEN : ", request_token);
             
-            AppConstants.setEditorValues(context, AppConstants.SHARED_PREF_KEY, request_token).commit();
-            
+            if(!request_token.equals("")){
+            	AppConstants.setEditorValues(context, AppConstants.SHARED_PREF_REQUEST_TOKEN_KEY, request_token).commit();
+            	AppConstants.setEditorBooleanValues(context, AppConstants.SHARED_PREF_BOOLEAN_KEY, true).commit();
+            	AppConstants.setEditorValues(context, AppConstants.SHARED_PREF_WEB_URL_KEY, url);
+            	AppModel.setAuthenticated(true);
+            	AppModel.setFinalURL(url);
+            	AppModel.setRequestToken(request_token);
+            }
             //Add finish here
             closeActivity();
             

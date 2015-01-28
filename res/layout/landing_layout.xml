@@ -66,43 +66,17 @@
                     android:gravity="center"
                     android:orientation="vertical" >
 
-                    <Button
-                        android:id="@+id/notification_view_map_button"
+                    <TextView
+                        android:id="@+id/authLabelTextView"
                         style="?android:attr/buttonStyleSmall"
-                        android:layout_width="70dp"
+                        android:layout_width="match_parent"
                         android:layout_height="70dp"
-                        android:background="@drawable/custom_style_on_touch"
-                        android:text="Map"
+                        android:background="@drawable/custom_style_rectangle_black"
+                        android:text="Authenticating User\n please wait..."
                         android:textColor="#fff"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/rate_linear_layout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical" >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical" >
-
-                    <Button
-                        android:id="@+id/notification_view_web_button"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:background="@drawable/custom_style_on_touch"
-                        android:text="Web"
-                        android:textColor="#fff" />
-                </LinearLayout>
-            </LinearLayout>
-
         </LinearLayout>
     </RelativeLayout>
 

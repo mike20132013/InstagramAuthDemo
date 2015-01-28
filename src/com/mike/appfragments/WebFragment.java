@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 
 import com.mike.instagramauthdemo.R;
 import com.mike.listeners.GenericFinishListener;
@@ -27,9 +26,8 @@ public class WebFragment extends Fragment implements GenericFinishListener{
 		CustomWebviewClient.addFinishListener(this);
 		
 		mWebView = (WebView)v.findViewById(R.id.insta_webView);
-		mWebView.setWebViewClient(new WebViewClient());
         mWebView.setWebViewClient(new CustomWebviewClient(getActivity()));
-        mWebView.loadUrl(AppConstants.setAuthURL(getActivity().getResources().getString(R.string.client_id)));// If loading url
+        mWebView.loadUrl(AppConstants.setAuthURL(getActivity().getApplicationContext().getResources().getString(R.string.client_id)));// If loading url
         
         return v;
 	}
